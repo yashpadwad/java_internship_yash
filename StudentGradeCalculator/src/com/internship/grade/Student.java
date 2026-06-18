@@ -15,15 +15,17 @@ public class Student implements Gradeable {
         this.marks = new ArrayList<>();
     }
 
-    public void addMark(int mark) {
+    public void addMark(int mark)
+        throws InvalidMarkException {
 
-        if(mark >= 0 && mark <= 100) {
-            marks.add(mark);
-        } else {
-            System.out.println("Invalid mark! Marks must be between 0 and 100.");
-        }
+    if(mark < 0 || mark > 100) {
+
+        throw new InvalidMarkException(
+                "Marks must be between 0 and 100");
     }
 
+    marks.add(mark);
+}
     @Override
     public double getAverage() {
 

@@ -67,13 +67,21 @@ public class Main {
 
                         for (int i = 1; i <= count; i++) {
 
-                            System.out.print(
-                                    "Enter mark " + i + ": ");
+    System.out.print(
+            "Enter mark " + i + ": ");
 
-                            int mark = scanner.nextInt();
+    int mark = scanner.nextInt();
 
-                            foundStudent.addMark(mark);
-                        }
+    try {
+
+        foundStudent.addMark(mark);
+
+    } catch (InvalidMarkException e) {
+
+        System.out.println(
+                "Error: " + e.getMessage());
+    }
+}
 
                         System.out.println(
                                 "Average: "
